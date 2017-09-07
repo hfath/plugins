@@ -277,4 +277,4 @@ def parse(story,request):
     output      = config.get('txtl_output', 'ascii')
     encoding    = config.get('txtl_encoding', 'latin-1')
 
-    return textile(story, head_offset=head_offset, validate=validate, output=output, encoding=encoding)
+    return textile(story, head_offset=head_offset)
