@@ -221,10 +221,11 @@ def cb_preformat(args):
     @param args: a dict with 'parser' string and a list 'story'
     @type args: dict
     """
-    if args['parser'] == PREFORMATTER_ID:
+    if args['parser'] == PREFORMATTER_ID and \
+           args['request'].getData()['flavour'] == "html":
         return parse(''.join(args['story']),args['request'])
     else:
-        return ''.join(args['story'])
+        return ''.join(args['story']).replace("&amp;","&")
 
 
 def readfile(filename, request):
